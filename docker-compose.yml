@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.rails
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: backend
+      POSTGRES_PASSWORD: backend
+      POSTGRES_DB: backend_development
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    volumes:
+      - ./frontend/dist/frontend:/usr/share/nginx/html
+    ports:
+      - "1919:80"
+volumes:
+  postgres_data: {}
