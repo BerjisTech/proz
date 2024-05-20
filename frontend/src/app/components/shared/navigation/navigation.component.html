@@ -1,7 +1,7 @@
 <div *ngIf="showMain" [ngClass]="{'w-screen p-2 flex items-center content-center justify-center': true, 
                  'bg-[#335E5B]': showMainBackground, 
                  'bg-[#ffffff]': !showMainBackground}">
-    <img src="assets/images/logo.png" alt="logo" class="h-[30px] logo" />
+    <a href="/"><img src="assets/images/logo.png" alt="logo" class="h-[30px] logo" /></a>
     <div class="flex-grow"></div>
     <div class="flex items-center content-center justify-center gap-2">
         <app-nav-item *ngFor="let path of navItems" [path]="path"></app-nav-item>

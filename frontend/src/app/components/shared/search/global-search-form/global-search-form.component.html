@@ -1,13 +1,9 @@
-<div class="w-screen h-[71vh]" style="background-image: url('/assets/images/brwein.webp')">
-    <div class="w-full h-full flex flex-col items-center justify-center gap-7">
-        <div class="flex-grow"></div>
-        <div [ngClass]="{'flex items-center justify-center font-black text-slate-50 text-[50px]': true, 'hidden': hasSuggestions}">
-            ProZ.com
-        </div>
+<div class="w-full h-[71vh]" style="background-image: url('/assets/images/brwein.webp')">
+    <div class="w-full h-full flex flex-col items-center justify-start gap-2">
         <form [ngClass]="{
             'relative border-1 border-solid flex items-center justify-center min-w-[60%] max-w-full bg-slate-50': true,
-            'rounded-t-xl border-slate-200': hasSuggestions,
-            'rounded-full border-slate-800': !hasSuggestions
+            'rounded-t-xl border-slate-200 mt-[50px]': hasSuggestions,
+            'rounded-full border-slate-800 mt-[5px]': !hasSuggestions
           }" (submit)="onSuggestionClick(suggestion)">
             <input #searchInput (input)="hasSuggestions = (searchInput.value ? true : false); onSearchInput($event)"
                 placeholder="Search anything" class="rounded-s-full w-full h-full flex-grow py-2 px-4 outline-none" />
@@ -21,29 +17,28 @@
                     (click)="onSuggestionClick(suggestion)">{{ suggestion }}</span>
             </div>
         </form>
-        <div [ngClass]="{'flex items-center justify-center': true, 'mt-[-110px]': hasSuggestions}">
+        <div [ngClass]="{'flex items-center justify-center': true, 'mt-[-100px]': hasSuggestions}">
             <a href="/ai"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">chat</a>
             <a href="/suppliers"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">shopping_cart</a>
             <a href="/courses"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">auto_stories</a>
             <a href="/forums"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">group</a>
             <a href="/library"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">stadia_controller</a>
             <a href="/videos"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">tv</a>
             <a href="/map"
-                class="text-decoration-none text-slate-50 hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
+                class="text-decoration-none text-[#2E6969] hover:text-orange-500 p-2 h-full flex items-center justify-center material-symbols-outlined"
                 role="button">map</a>
         </div>
-        <div class="flex-grow"></div>
     </div>
 </div>

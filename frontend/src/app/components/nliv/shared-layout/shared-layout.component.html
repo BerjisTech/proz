@@ -1,1 +1,17 @@
-<p>shared-layout works!</p>
+<div
+    class="w-full h-auto min-h-screen overflow-y-auto overflow-x-hidden flex items-center justify-start flex-col m-0 p-0">
+    <app-navigation></app-navigation>
+    <div class="w-full flex-grow flex items-start justify-start">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="w-full h-[200px] bg-slate-200">
+        <div class="flex items-center justify-center h-full">
+            <div class="flex items-center justify-center gap-2">
+                <a href="/about" class="text-decoration-none text-slate-950 hover:text-orange-500">About</a>
+                <a href="/terms" class="text-decoration-none text-slate-950 hover:text-orange-500">Terms</a>
+                <a href="/privacy" class="text-decoration-none text-slate-950 hover:text-orange-500">Privacy</a>
+                <a href="/help" class="text-decoration-none text-slate-950 hover:text-orange-500">Help</a>
+            </div>
+        </div>
+    </div>
+</div>
