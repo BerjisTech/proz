@@ -5,8 +5,9 @@ WORKDIR /backend
 COPY ./backend/Gemfile ./Gemfile
 RUN bundle install
 COPY ./backend .
+COPY ../entrypoint.sh /usr/bin/
 COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN apt-get update && apt-get install -y dos2unix && dos2unix /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]

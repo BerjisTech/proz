@@ -19,9 +19,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: backend
-      POSTGRES_PASSWORD: backend
-      POSTGRES_DB: backend_development
+      POSTGRES_USER: prometheus
+      POSTGRES_PASSWORD: prometheus
+      POSTGRES_DB: prometheus_development
 
   nginx:
     build:
@@ -31,5 +31,6 @@ services:
       - ./frontend/dist/frontend:/usr/share/nginx/html
     ports:
       - "1919:80"
+
 volumes:
   postgres_data: {}

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # root to module api, mudole v1, home controller
+  root to: 'api/v1/home#index'
+  get '/api' => 'api/v1/home#index'
+  # namespace api, namespace v1, resources
   namespace :api do
-    # Define your API routes here
-    root to: 'home#index'
+    namespace :v1 do
+
+    end
   end
 end
