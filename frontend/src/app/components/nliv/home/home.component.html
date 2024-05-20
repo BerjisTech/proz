@@ -1,7 +1,37 @@
-<div class="w-screen h-screen flex items-center content-center justify-center">
-    <div class="w-[300px] h-screen"></div>
-    <div class="flex-grow h-screen border-x-1 border-solid border-[#2E6969]"></div>
-    <div class="w-[300px] h-screen">
-        <app-global-search-form></app-global-search-form>
+<div
+  class="fixed top-0 left-0 w-screen h-screen flex items-center  justify-center bg-white"
+>
+  <div class="w-[300px] h-screen"></div>
+  <div
+    class="flex-grow h-screen overflow-y-auto overflow-x-hidden border-x-1 border-solid border-[#2E6969]"
+  >
+    <div *ngIf="showFeedItem">
+        <span class="material-symbols-outlined" role="button" (click)="showFeeds()">arrow_back</span>
+        <!-- TODO: #1 Feed Item Type Title Goes here -->
+        <span>Feed Item Type Title Goes here</span>
     </div>
+    <!-- *ngFor 10 instances of app-feed-item -->
+    <ng-container *ngIf="showFeed">
+      <app-feed-item
+        *ngFor="let item of feedItems"
+        [feedItem]="item"
+        (onFeedItemClick)="feedItemClicked(item)"
+        (onFeedImageClick)="feedImageClicked($event, item)"
+        (onFeedItemLike)="feedItemLike()"
+      ></app-feed-item>
+    </ng-container>
+    <ng-container *ngIf="showFeedItem">
+      <app-feed-item [feedItem]="activeFeedItem"></app-feed-item>
+    </ng-container>
+    <ng-container *ngIf="showFeedImage">
+        <app-feed-image 
+        [feedItem]="activeFeedItem" 
+        [activeImage]="activeFeedImage"
+        (onImageClose)="closeImageView()"></app-feed-image>
+    </ng-container>
+  </div>
+  <div class="w-[300px] h-screen">
+    <app-global-search-form></app-global-search-form>
+  </div>
 </div>
+

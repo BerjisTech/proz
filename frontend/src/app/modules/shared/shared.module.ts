@@ -4,6 +4,8 @@ import { NavigationComponent } from '../../components/shared/navigation/navigati
 import { NavItemComponent } from '../../components/shared/navigation/nav-item/nav-item.component';
 import { GlobalSearchFormComponent } from '../../components/shared/search/global-search-form/global-search-form.component';
 import { GlobalSearchResultsComponent } from '../../components/shared/search/global-search-results/global-search-results.component';
+import { FeedItemComponent } from '../../components/shared/feed/feed-item/feed-item.component';
+import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed-image.component';
 
 
 
@@ -12,7 +14,9 @@ import { GlobalSearchResultsComponent } from '../../components/shared/search/glo
     NavigationComponent,
     NavItemComponent,
     GlobalSearchFormComponent,
-    GlobalSearchResultsComponent
+    GlobalSearchResultsComponent,
+    FeedItemComponent,
+    FeedImageComponent
   ],
   imports: [
     CommonModule
@@ -21,7 +25,9 @@ import { GlobalSearchResultsComponent } from '../../components/shared/search/glo
     NavigationComponent,
     NavItemComponent,
     GlobalSearchFormComponent,
-    GlobalSearchResultsComponent
+    GlobalSearchResultsComponent,
+    FeedItemComponent,
+    FeedImageComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,76 @@
+<div
+  (click)="feedClicked($event)"
+  role="button"
+  class="w-full min-w-[300px] p-2 shadow-md rounded-md flex flex-col items-start content-start justify-start"
+>
+  <!-- User -->
+  <div class="flex items-center justify-start gap-2">
+    <img
+      role="button"
+      class="w-10 h-10 rounded-full"
+      src="assets/images/default-user.png"
+    />
+    <!-- [src]="feedItem.user.avatar" -->
+    <div class="flex flex-col items-start justify-center">
+      <span class="font-bold">John Doe</span>
+      <!-- {{ feedItem.user.name }} -->
+      <span class="text-xs text-gray-500">2 hours ago</span>
+      <!-- {{ feedItem.createdAt | timeAgo }} -->
+    </div>
+  </div>
+  <!-- End user -->
+
+  <!-- Content -->
+  <div>{{ feedItem.textContent }} with {{ feedItem.images.length }} images</div>
+  <!-- End content -->
+
+  <!-- Image -->
+  <div class="w-full">
+    <!-- Display multiple images, max 4, 
+        if image count is 4 create grid of 4 images equal sizes min width 200px 2 at the top 2 at the bottom
+        if image count is 3 display the images in the same row, also euqual sizes min width 200px and flex wrap
+        if image count is 2 display the images in the same row, also euqual sizes min width 200px
+        if image count is 1 display the image in full width
+        for testing user dummyImageNumber to be rand max 4
+    -->
+
+    <div class="flex items-center justify-center flex-wrap gap-2">
+      <div
+        *ngFor="let image of feedItem.images | slice : 0 : 4"
+        (click)="imageClicked($event, image)"
+        role="button"
+        class="w-auto min-w-[300px] h-[300px] rounded-xl flex-wrap flex-grow flex items-center justify-center bg-cover bg-no-repeat bg-center relative"
+        style="background-image: url('{{ image }}')"
+      >
+        <div class="absolute inset-0 backdrop-blur-sm rounded-xl"></div>
+        <img
+          src="{{ image }}"
+          class="absolute h-auto w-auto max-w-full max-h-full rounded-xl"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- End image -->
+
+  <!-- Actions -->
+  <div class="flex items-center justify-start gap-4">
+    <button
+      class="flex items-center justify-center gap-2"
+      (click)="likeClicked($event)"
+    >
+      <i class="fas fa-thumbs-up"></i>
+      <!-- <i class="fas fa-thumbs-up" *ngIf="!feedItem.liked"></i> -->
+      <!-- <i class="far fa-thumbs-up" *ngIf="feedItem.liked"></i> -->
+      <span>Like</span>
+    </button>
+    <button class="flex items-center justify-center gap-2">
+      <i class="fas fa-comment"></i>
+      <span>Comment</span>
+    </button>
+    <button class="flex items-center justify-center gap-2">
+      <i class="fas fa-share"></i>
+      <span>Share</span>
+    </button>
+  </div>
+  <!-- End actions -->
+</div>
