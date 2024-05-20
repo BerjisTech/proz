@@ -1,0 +1,33 @@
+<div class="search-result flex p-5">
+    <div class="flex gap-2 flex-grow">
+        <div class="w-full flex-grow flex flex-col">
+            <div class="flex gap-2 justify-start items-center w-full">
+                <div *ngIf="searchResult.image">
+                    <img [src]="searchResult.image" class="w-[50px] h-[50px] rounded-full"
+                        alt="{{ searchResult.title }}">
+                </div>
+                <div class="flex flex-col w-full flex-grow">
+                    <span class="font-bold"><a [href]="searchResult.url" target="_BLANK">{{ searchResult.title }}</a></span>
+                    <span class="flex items-start justify-start w-full">
+                        <a class="url flex-grow" target="_BLANK" [href]="searchResult.url">{{ searchResult.url }}</a>
+                        <span class="text-slate-500 material-symbols-outlined cursor-pointer">more_vert</span>
+                    </span>
+                </div>
+            </div>
+            <div class="flex flex-col items-start justify-start">
+                <p class="description">{{ searchResult.description.slice(0, 200) }}<span
+                        class="text-slate-500">...</span></p>
+                <div class="flex w-full">
+                    <div *ngIf="searchResult.tags.length > 0" class="flex-grow flex items-center justify-start gap-2">
+                        <span class="tag flex items-center justify-center gap-2" *ngFor="let tag of searchResult.tags"><a [href]="'/s/a?t=' + tag">{{ tag
+                                }}</a><span class="w-[3px] h-[3px] bg-slate-950 rounded-full"></span></span>
+                    </div>
+                    <p class="date">{{ searchResult.date }}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="searchResult.image">
+            <img [src]="searchResult.image" class="w-[100px] h-[100px] rounded-md" alt="{{ searchResult.title }}">
+        </div>
+    </div>
+</div>

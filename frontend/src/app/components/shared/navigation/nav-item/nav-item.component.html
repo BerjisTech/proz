@@ -1,0 +1,9 @@
+<a [href]="path.url" [target]="path.mode" class="flex items-center content-center justify-center">
+    <span class="material-symbols-outlined">
+        {{ path.iconName }}
+    </span>
+    <div class="flex-grow"></div>
+    <span class="text-[#000000]">
+        {{ path.displayName.charAt(0).toUpperCase() + path.displayName.slice(1) }}
+    </span>
+</a>
