@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FeedItem } from '../../../interfaces/feed/feed-item';
+import { FeedService } from '../../../services/feed/feed.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,11 @@ import { FeedItem } from '../../../interfaces/feed/feed-item';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  constructor() {}
+  constructor(private feedService: FeedService) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.feedItems = await this.feedService.getFeedItems();
+  }
 
   ngOnDestroy() {}
 
@@ -29,57 +32,8 @@ export class HomeComponent {
     date: '',
     user: null,
   };
-  feedItems: FeedItem[] = [
-    {
-      id: 1,
-      title: 'Feed Item 1',
-      textContent: 'This is a feed item textContent.',
-      images: [
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-      ],
-      date: '2021-01-01',
-      user: null,
-    },
-    {
-      id: 2,
-      title: 'Feed Item 2',
-      textContent: 'This is a feed item textContent.',
-      images: [
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-        `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`,
-      ],
-      date: '2021-01-02',
-      user: null,
-    },
-    {
-      id: 3,
-      title: 'Feed Item 3',
-      textContent: 'This is a feed item textContent.',
-      images: [`https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`, `https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`],
-      date: '2021-01-03',
-      user: null,
-    },
-    {
-      id: 4,
-      title: 'Feed Item 4',
-      textContent: 'This is a feed item textContent.',
-      images: [`https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`],
-      date: '2021-01-04',
-      user: null,
-    },
-    {
-      id: 5,
-      title: 'Feed Item 5',
-      textContent: 'This is a feed item textContent.',
-      images: [`https://picsum.photos/${this.randomIntInRange(100,700)}/${this.randomIntInRange(100,700)}?random=${this.randomIntInRange(0,10)}`],
-      date: '2021-01-05',
-      user: null,
-    },
-  ];
+
+  feedItems: Promise<FeedItem[]> = this.feedService.getFeedItems();
 
   showFeeds() {
     this.showFeed = true;

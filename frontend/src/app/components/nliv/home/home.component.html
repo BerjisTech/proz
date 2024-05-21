@@ -13,7 +13,7 @@
     <!-- *ngFor 10 instances of app-feed-item -->
     <ng-container *ngIf="showFeed">
       <app-feed-item
-        *ngFor="let item of feedItems"
+        *ngFor="let item of feedItems | async"
         [feedItem]="item"
         (onFeedItemClick)="feedItemClicked(item)"
         (onFeedImageClick)="feedImageClicked($event, item)"
