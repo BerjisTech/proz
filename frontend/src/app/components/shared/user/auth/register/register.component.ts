@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../../../../services/user/auth.service';
 
 @Component({
@@ -8,6 +8,12 @@ import { AuthService } from '../../../../../services/user/auth.service';
 })
 export class RegisterComponent {
   constructor(private authService: AuthService) {}
+
+  @Output() showLogin = new EventEmitter<void>();
+
+  showlogin(): void {
+    this.showLogin.emit();
+  }
 
   register(user: any): void {
     this.authService.register(user).subscribe((response) => {

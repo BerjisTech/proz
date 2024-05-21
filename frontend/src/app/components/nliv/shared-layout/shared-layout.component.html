@@ -2,8 +2,7 @@
     class="w-full h-auto min-h-screen overflow-y-auto overflow-x-hidden flex items-center justify-start flex-col m-0 p-0">
     <app-navigation></app-navigation>
     <div class="w-full flex-grow flex items-start justify-start">
-        <app-login *ngIf="!isAuthenticated()"></app-login>
-        <app-register *ngIf="!isAuthenticated()"></app-register>
+        <app-auth *ngIf="!isAuthenticated()"></app-auth>
         <router-outlet *ngIf="isAuthenticated()"></router-outlet>
     </div>
     <div class="w-full h-[200px] bg-slate-200">
