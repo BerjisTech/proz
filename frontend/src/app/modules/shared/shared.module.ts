@@ -6,6 +6,8 @@ import { GlobalSearchFormComponent } from '../../components/shared/search/global
 import { GlobalSearchResultsComponent } from '../../components/shared/search/global-search-results/global-search-results.component';
 import { FeedItemComponent } from '../../components/shared/feed/feed-item/feed-item.component';
 import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed-image.component';
+import { RegisterComponent } from '../../components/shared/user/auth/register/register.component';
+import { LoginComponent } from '../../components/shared/user/auth/login/login.component';
 
 
 
@@ -16,7 +18,9 @@ import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed
     GlobalSearchFormComponent,
     GlobalSearchResultsComponent,
     FeedItemComponent,
-    FeedImageComponent
+    FeedImageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule
@@ -27,7 +31,9 @@ import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed
     GlobalSearchFormComponent,
     GlobalSearchResultsComponent,
     FeedItemComponent,
-    FeedImageComponent
+    FeedImageComponent,
+    RegisterComponent,
+    LoginComponent
   ]
 })
 export class SharedModule { }

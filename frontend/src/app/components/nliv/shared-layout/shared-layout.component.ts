@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../services/user/auth.service';
 
 @Component({
   selector: 'app-shared-layout',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './shared-layout.component.scss'
 })
 export class SharedLayoutComponent {
+  constructor(private authService: AuthService) {}
+
+  logout(): void {
+    this.authService.logout().subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  isAuthenticated(): boolean {
+    console.log(this.authService.isAuthenticated())
+    return this.authService.isAuthenticated();
+  }
 
 }
