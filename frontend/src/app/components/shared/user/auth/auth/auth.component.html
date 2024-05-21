@@ -1,11 +1,58 @@
-<div class="flex items-center justify-center w-screen h-screen fixed top-0 left-0 bg-white z-50">
+<div
+  class="flex items-center justify-center w-screen h-screen fixed top-0 left-0 bg-white z-50"
+>
   <div
-    class="w-[400px] h-full bg-[#2E6969] text-white flex flex-col gap-2 items-center justify-center"
+    class="w-[400px] h-full bg-[#2E6969] text-white flex flex-col gap-2 py-5 items-center justify-center"
   >
-    <div class="text-5xl">ProZ.com</div>
+    <div class="text-7xl font-thin">ProZ.com</div>
+    <span class="w-[250px] h-[1px] bg-slate-400"></span>
+    <div class="font-thin">Bridging Languages, Connecting Professionals</div>
+    <div class="flex-grow"></div>
+    <div
+      class="w-[70%] min-w-[350px] h-[200px] rounded-2xl shadow-md bg-[#357c7c] flex flex-col items-center justify-center p-2"
+    >
+      <div class="flex-grow flex-col flex items-center justify-center gap-2">
+        <span class="w-full font-thin flex-grow"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
+          amet consectetur adipisicing elit.</span
+        >
+        <div class="flex items-center justify-start w-full gap-2">
+          <img
+            src="assets/images/default-user.png"
+            class="w-[50px] h-[50px] rounded-full"
+          />
+          <div class="flex-grow flex-col flex items-start justify-center">
+            <span class="text-sm font-extralight">John Doe</span>
+            <span class="text-sm font-thin">Freelancer</span>
+            <span class="text-sm font-thin">Turkey</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex items-center justify-center gap-2">
+        <span
+          class="w-[10px] h-[10px] bg-slate-400 rounded-full"
+          role="button"
+        ></span>
+        <span
+          class="w-[10px] h-[10px] bg-slate-50 rounded-full"
+          role="button"
+        ></span>
+        <span
+          class="w-[10px] h-[10px] bg-slate-400 rounded-full"
+          role="button"
+        ></span>
+      </div>
+    </div>
   </div>
   <div class="flex-grow flex items-center justify-center">
-    <app-login *ngIf="showLogin" (showRegister)="toogleLoginRegister()"></app-login>
-    <app-register *ngIf="!showLogin" (showLogin)="toogleLoginRegister()"></app-register>
+    <app-login
+      *ngIf="showLogin"
+      (showRegister)="toogleLoginRegister()"
+    ></app-login>
+    <app-register
+      *ngIf="!showLogin"
+      (showLogin)="toogleLoginRegister()"
+    ></app-register>
   </div>
 </div>
