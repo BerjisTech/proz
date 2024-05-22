@@ -8,7 +8,7 @@ import { FeedItem } from '../../../../interfaces/feed/feed-item';
 })
 export class FeedImageComponent {
   @Input() feedItem: FeedItem = {
-    id: 0,
+    id: 'UUID-1234-5678-9101-1121',
     title: '',
     textContent: '',
     images: [],
