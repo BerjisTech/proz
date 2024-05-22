@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Credentials } from '../../interfaces/user/credentials';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,12 @@ export class AuthService {
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
-  register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users`, user);
+  register(credentials: Credentials): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users`, {user: credentials});
   }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/sign_in`, credentials);
+  login(credentials: Credentials): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users/sign_in`, {user: credentials});
   }
 
   logout(): Observable<any> {

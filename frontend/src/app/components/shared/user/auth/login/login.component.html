@@ -1,35 +1,53 @@
-<div class="flex flex-col gap-2 items-center justify-center w-[70%] min-w-[400px]">
+<div
+  class="flex flex-col gap-2 items-center justify-center w-[70%] min-w-[400px]"
+>
   <span class="w-full text-2xl">Login in to your account</span>
-  <span  class="w-full text-sm text-slate-400 font-light"
+  <span class="w-full text-sm text-slate-400 font-light"
     >Don't have an account?
-    <span role="button" class="text-slate-950 font-bold" (click)="showregister()">Signup</span></span
+    <span
+      role="button"
+      class="text-slate-950 font-bold"
+      (click)="showregister()"
+      >Signup</span
+    ></span
   >
-  <span role="button"  class="w-full flex gap-2 p-2 items-center justify-center border-1 rounded-md border-slate-400">
+  <span
+    role="button"
+    class="w-full flex gap-2 p-2 items-center justify-center border-1 rounded-md border-slate-400"
+  >
     <img
       src="https://developers.google.com/identity/images/g-logo.png"
       class="w-4"
     />
     <span>Sign in with Google</span>
   </span>
-  <span
-    class="relative h-[50px] w-full flex items-center justify-center"
-  >
+  <span class="relative h-[50px] w-full flex items-center justify-center">
     <span class="w-[300px] h-[1px] bg-slate-300"></span>
-    <span class="absolute flex items-center justify-center bg-white rounded-full w-[30px] h-[30px]">or</span>
+    <span
+      class="absolute flex items-center justify-center bg-white rounded-full w-[30px] h-[30px]"
+      >or</span
+    >
   </span>
-  <form  class="w-full" (submit)="login(this)">
+  <form class="w-full" (ngSubmit)="login($event)">
     <div class="flex flex-col gap-2 items-center justify-center">
       <input
+        [(ngModel)]="credentials.email"
         type="email"
         class="w-full h-[40px] border-1 border-slate-400 rounded-md p-2"
         placeholder="Email"
+        required
       />
       <input
+        [(ngModel)]="credentials.password"
         type="password"
         class="w-full h-[40px] border-1 border-slate-400 rounded-md p-2"
         placeholder="Password"
+        required
       />
-      <button type="submit" class="w-full h-[40px] bg-[#2E6969] text-white rounded-md">
+      <button
+        type="submit"
+        class="w-full h-[40px] bg-[#2E6969] text-white rounded-md"
+      >
         Login
       </button>
     </div>

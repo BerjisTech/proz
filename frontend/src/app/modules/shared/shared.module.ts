@@ -9,6 +9,7 @@ import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed
 import { AuthComponent } from '../../components/shared/user/auth/auth/auth.component';
 import { RegisterComponent } from '../../components/shared/user/auth/register/register.component';
 import { LoginComponent } from '../../components/shared/user/auth/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,6 +26,7 @@ import { LoginComponent } from '../../components/shared/user/auth/login/login.co
     AuthComponent
   ],
   imports: [
+    FormsModule,
     CommonModule
   ],
   exports: [

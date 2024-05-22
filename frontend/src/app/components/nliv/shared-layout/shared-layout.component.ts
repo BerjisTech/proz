@@ -10,7 +10,7 @@ export class SharedLayoutComponent {
   constructor(private authService: AuthService) {}
 
   logout(): void {
-    this.authService.logout().subscribe((response) => {
+    this.authService.logout().subscribe((response: any) => { // Specify the type for 'response'
       console.log(response);
     });
   }
