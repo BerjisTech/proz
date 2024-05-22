@@ -1,6 +1,8 @@
+import { UUID } from "crypto";
 import { User } from "../user/user";
+
 export interface FeedItem {
-    id: number;
+    id: UUID;
     title: string;
     textContent: string;
     images: string[];

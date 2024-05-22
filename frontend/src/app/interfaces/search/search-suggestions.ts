@@ -1,11 +1,12 @@
+import { UUID } from 'crypto';
 export interface SearchSuggestions {
-    id: number;
-    title: string;
-    description: string;
-    url: string;
-    image: string;
-    type: string;
-    category: string;
-    tags: string[];
-    date: string;
+  id: UUID;
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  type: string;
+  category: string;
+  tags: string[];
+  date: string;
 }

@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2024_05_22_095731) do
     t.index ["job_id"], name: "index_admin_squashes_on_job_id"
   end
 
-  create_table "api_v1_feed_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "item_type", null: false
-    t.uuid "item_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_type", "item_id"], name: "index_api_v1_feed_items_on_item"
-  end
-
   create_table "field_specializations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.uuid "job_field_id", null: false
