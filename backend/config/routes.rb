@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :admin_squashes
+  resources :quotes
+  resources :jobs
+  resources :field_specializations
+  resources :job_fields
+  resources :language_variants
+  resources :languages
   root to: 'api/v1/home#index'
   get '/api' => 'api/v1/home#index'
   get '/api/v1' => 'api/v1/home#index'

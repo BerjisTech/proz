@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job: one
+  user: one
+  amount: 9.99
+  description: MyText
+
+two:
+  job: two
+  user: two
+  amount: 9.99
+  description: MyText

@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  language: one
+  language_variant: one
+  job_field: one
+  field_specialization: one
+  potential: false
+  actual: false
+  price: 9.99
+  fixed_price: false
+  quoting_deadline: 2024-05-22 09:57:21
+  submission_deadline: 2024-05-22 09:57:21
+  excerpt: MyText
+  document: MyText
+  sample_translation_required: false
+  user: one
+
+two:
+  title: MyString
+  description: MyText
+  language: two
+  language_variant: two
+  job_field: two
+  field_specialization: two
+  potential: false
+  actual: false
+  price: 9.99
+  fixed_price: false
+  quoting_deadline: 2024-05-22 09:57:21
+  submission_deadline: 2024-05-22 09:57:21
+  excerpt: MyText
+  document: MyText
+  sample_translation_required: false
+  user: two
