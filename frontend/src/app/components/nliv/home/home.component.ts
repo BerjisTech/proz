@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FeedItem } from '../../../interfaces/feed/feed-item';
 import { FeedService } from '../../../services/feed/feed.service';
+import { FeedItemImage } from '../../../interfaces/feed/feed-item-image';
 
 @Component({
   selector: 'app-home',
@@ -23,15 +24,8 @@ export class HomeComponent {
   showFeed: boolean = true;
   showFeedItem: boolean = false;
   showFeedImage: boolean = false;
-  activeFeedImage: string = '';
-  activeFeedItem: FeedItem = {
-    id: 'UUID-1234-5678-9101-1121',
-    title: '',
-    textContent: '',
-    images: [],
-    date: '',
-    user: null,
-  };
+  activeFeedImage!: FeedItemImage;
+  activeFeedItem!: FeedItem;
 
   feedItems: Promise<FeedItem[]> = this.feedService.getFeedItems();
 
@@ -47,7 +41,7 @@ export class HomeComponent {
     this.showFeedImage = false;
     this.activeFeedItem = feedItem;
   }
-  feedImageClicked(image: string, feedItem: FeedItem) {
+  feedImageClicked(image: FeedItemImage, feedItem: FeedItem) {
     this.activeFeedItem = feedItem;
     this.activeFeedImage = image;
     this.showFeedImage = true;

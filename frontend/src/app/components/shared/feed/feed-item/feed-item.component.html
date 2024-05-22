@@ -21,7 +21,7 @@
   <!-- End user -->
 
   <!-- Content -->
-  <div>{{ feedItem.textContent }} with {{ feedItem.images.length }} images</div>
+  <div>{{ feedItem.description }} with {{ feedItem.feed_item_images?.length }} images</div>
   <!-- End content -->
 
   <!-- Image -->
@@ -36,7 +36,7 @@
 
     <div class="flex items-center justify-center flex-wrap gap-2">
       <div
-        *ngFor="let image of feedItem.images | slice : 0 : 4"
+        *ngFor="let image of feedItem.feed_item_images | slice : 0 : 4"
         (click)="imageClicked($event, image)"
         role="button"
         class="w-auto min-w-[300px] h-[300px] rounded-xl flex-wrap flex-grow flex items-center justify-center bg-cover bg-no-repeat bg-center relative"

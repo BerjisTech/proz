@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_22_095731) do
+ActiveRecord::Schema.define(version: 2024_05_22_103452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -22,6 +22,41 @@ ActiveRecord::Schema.define(version: 2024_05_22_095731) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_admin_squashes_on_job_id"
+  end
+
+  create_table "feed_item_files", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "feed_item_id", null: false
+    t.string "file"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feed_item_id"], name: "index_feed_item_files_on_feed_item_id"
+  end
+
+  create_table "feed_item_images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "feed_item_id", null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feed_item_id"], name: "index_feed_item_images_on_feed_item_id"
+  end
+
+  create_table "feed_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "item_type", null: false
+    t.uuid "item_id", null: false
+    t.text "title"
+    t.text "description"
+    t.uuid "user_id", null: false
+    t.integer "likes"
+    t.integer "comment_count"
+    t.text "feed_type"
+    t.boolean "is_comment"
+    t.boolean "is_quote_feed"
+    t.text "visibility"
+    t.boolean "edited"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_type", "item_id"], name: "index_feed_items_on_item"
+    t.index ["user_id"], name: "index_feed_items_on_user_id"
   end
 
   create_table "field_specializations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -110,6 +145,9 @@ ActiveRecord::Schema.define(version: 2024_05_22_095731) do
   end
 
   add_foreign_key "admin_squashes", "jobs"
+  add_foreign_key "feed_item_files", "feed_items"
+  add_foreign_key "feed_item_images", "feed_items"
+  add_foreign_key "feed_items", "users"
   add_foreign_key "field_specializations", "job_fields"
   add_foreign_key "jobs", "field_specializations"
   add_foreign_key "jobs", "job_fields"

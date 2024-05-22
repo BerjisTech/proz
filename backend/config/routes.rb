@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :job_fields
   resources :language_variants
   resources :languages
+
+  # Map custom routes
+  get 'feed' => 'feed_items#index'
+
   root to: 'api/v1/home#index'
   get '/api' => 'api/v1/home#index'
   get '/api/v1' => 'api/v1/home#index'
