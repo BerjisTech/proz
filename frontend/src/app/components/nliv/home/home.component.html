@@ -1,17 +1,17 @@
 <div
-  class="fixed top-0 left-0 w-screen h-screen flex items-center  justify-center bg-white"
+  class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white"
 >
   <div class="w-[300px] h-screen"></div>
   <div
     class="flex-grow h-screen overflow-y-auto overflow-x-hidden border-x-1 border-solid border-[#2E6969]"
   >
-    <div *ngIf="showFeedItem">
-        <span class="material-symbols-outlined" role="button" (click)="showFeeds()">arrow_back</span>
-        <!-- TODO: #1 Feed Item Type Title Goes here -->
-        <span>Feed Item Type Title Goes here</span>
-    </div>
     <!-- *ngFor 10 instances of app-feed-item -->
     <ng-container *ngIf="showFeed">
+      <div class="flex flex-col gap-3">
+        <p [innerHTML]="highlightedParagraphs.question"></p>
+        <p [innerHTML]="highlightedParagraphs.reply"></p>
+      </div>
+
       <app-feed-item
         *ngFor="let item of feedItems | async"
         [feedItem]="item"
@@ -21,17 +21,30 @@
       ></app-feed-item>
     </ng-container>
     <ng-container *ngIf="showFeedItem">
+      <div>
+        <span
+          class="material-symbols-outlined"
+          role="button"
+          (click)="showFeeds()"
+          >arrow_back</span
+        >
+        <!-- TODO: #1 Feed Item Type Title Goes here -->
+        <span
+          >{{ activeFeedItem.item_type }} -
+          {{ activeFeedItem.item.title }}</span
+        >
+      </div>
       <app-feed-item [feedItem]="activeFeedItem"></app-feed-item>
     </ng-container>
     <ng-container *ngIf="showFeedImage">
-        <app-feed-image 
-        [feedItem]="activeFeedItem" 
+      <app-feed-image
+        [feedItem]="activeFeedItem"
         [activeImage]="activeFeedImage"
-        (onImageClose)="closeImageView()"></app-feed-image>
+        (onImageClose)="closeImageView()"
+      ></app-feed-image>
     </ng-container>
   </div>
   <div class="w-[300px] h-screen">
     <app-global-search-form></app-global-search-form>
   </div>
 </div>
-
