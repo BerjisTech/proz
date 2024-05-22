@@ -1,3 +1,9 @@
-class Api::V1::FeedItem < ApplicationRecord
-  belongs_to :item, polymorphic: true
+# frozen_string_literal: true
+
+module Api
+  module V1
+    class FeedItem < ApplicationRecord
+      belongs_to :item, polymorphic: true
+    end
+  end
 end

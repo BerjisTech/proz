@@ -31,6 +31,7 @@
   <form class="w-full" (ngSubmit)="login($event)">
     <div class="flex flex-col gap-2 items-center justify-center">
       <input
+        (input)="authError = false"
         [(ngModel)]="credentials.email"
         type="email"
         class="w-full h-[40px] border-1 border-slate-400 rounded-md p-2"
@@ -38,12 +39,19 @@
         required
       />
       <input
+        (input)="authError = false"
         [(ngModel)]="credentials.password"
         type="password"
         class="w-full h-[40px] border-1 border-slate-400 rounded-md p-2"
         placeholder="Password"
         required
       />
+      <div
+        *ngIf="authError"
+        class="w-full h-[40px] border-1 border-red-400 text-red-400 rounded-md p-2"
+      >
+        {{ error }}
+      </div>
       <button
         type="submit"
         class="w-full h-[40px] bg-[#2E6969] text-white rounded-md"

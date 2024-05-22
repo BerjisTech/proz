@@ -19,6 +19,8 @@ export class LoginComponent {
   @Output() showRegister = new EventEmitter<void>();
 
   credentials: Credentials = { email: '', password: '' };
+  authError: boolean = false;
+  error: string = 'Error logging in. Please try again.';
 
   showregister(): void {
     this.showRegister.emit();
@@ -31,6 +33,8 @@ export class LoginComponent {
         this.cookieService.set('token', response['token']);
       },
       error: (error) => {
+        this.error = error.error;
+        this.authError = true;
         console.log(error);
       },
     });
