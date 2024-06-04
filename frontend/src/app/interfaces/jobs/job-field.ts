@@ -1,5 +1,5 @@
 import { UUID } from 'crypto';
 export interface JobField {
-  id?: UUID;
+  id: string;
   name: string;
 }

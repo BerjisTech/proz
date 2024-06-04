@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
   activeFeedImage!: FeedItemImage;
   activeFeedItem!: FeedItem;
 
-  feedItems: Promise<FeedItem[]> = this.feedService.getFeedItems();
+  // feedItems: Promise<FeedItem[]> = this.feedService.getFeedItems();
+  feedItems: FeedItem[] = this.feedService.generateDummyFeedItems();
 
   showFeeds() {
     this.showFeed = true;

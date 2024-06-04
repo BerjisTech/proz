@@ -1,6 +1,6 @@
 import { UUID } from 'crypto';
 export interface SearchSuggestions {
-  id: UUID;
+  id: string;
   title: string;
   description: string;
   url: string;

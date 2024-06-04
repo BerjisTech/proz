@@ -1,6 +1,6 @@
 import { UUID } from 'crypto';
 export interface FieldSpecialization {
-  id?: UUID;
+  id: string;
   name: string;
-  job_field_id: UUID;
+  job_field_id: string;
 }

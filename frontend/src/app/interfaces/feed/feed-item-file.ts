@@ -1,7 +1,7 @@
 import { UUID } from "crypto";
 
 export interface FeedItemFile {
-    id?: UUID;
+    id: string;
     feed_item_id: number;
     file: string;
   }

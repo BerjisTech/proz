@@ -1,7 +1,7 @@
 <div
   (click)="feedClicked($event)"
   role="button"
-  class="w-full min-w-[300px] p-2 shadow-md rounded-md flex flex-col items-start content-start justify-start"
+  class="w-auto min-w-[300px] p-2 shadow-sm rounded-md flex flex-col items-start content-start justify-start"
 >
   <!-- User -->
   <div class="flex items-center justify-start gap-2">
@@ -36,15 +36,15 @@
 
     <div class="flex items-center justify-center flex-wrap gap-2">
       <div
-        *ngFor="let image of feedItem.feed_item_images | slice : 0 : 4"
-        (click)="imageClicked($event, image)"
+        *ngFor="let feed_item_image of feedItem.feed_item_images | slice : 0 : 4"
+        (click)="imageClicked($event, feed_item_image)"
         role="button"
         class="w-auto min-w-[300px] h-[300px] rounded-xl flex-wrap flex-grow flex items-center justify-center bg-cover bg-no-repeat bg-center relative"
-        style="background-image: url('{{ image }}')"
+        style="background-image: url('{{ feed_item_image.image }}')"
       >
         <div class="absolute inset-0 backdrop-blur-sm rounded-xl"></div>
         <img
-          src="{{ image }}"
+          src="{{ feed_item_image.image }}"
           class="absolute h-auto w-auto max-w-full max-h-full rounded-xl"
         />
       </div>

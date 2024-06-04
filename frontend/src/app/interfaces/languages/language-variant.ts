@@ -1,6 +1,6 @@
 import { UUID } from 'crypto';
 export interface LanguageVariant {
-  id?: UUID;
+  id: string;
   name: string;
-  language_id: UUID;
+  language_id: string;
 }

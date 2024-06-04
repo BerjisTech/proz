@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { FeedItem } from '../../interfaces/feed/feed-item';
 import { User } from '../../interfaces/user/user';
+import { AuthService } from '../user/auth.service';
 import { UUID } from 'crypto';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import * as uuid from 'uuid';
+import { faker } from '@faker-js/faker';
+import { FeedItemImage } from '../../interfaces/feed/feed-item-image';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedService {
   // Fetches feed items from https://localhost:3000/api/v1/feed_items rails api
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private authService: AuthService) {}
 
   
   getFeedItems() {
@@ -146,6 +150,47 @@ export class FeedService {
     )
       .then((response) => response.json())
       .then((data) => data);
+  }
+
+  generateDummyFeedItems() {
+    let feedItems: FeedItem[] = [];
+    for (let i = 0; i < 10; i++) {
+      let feedItem: FeedItem = {
+        id: uuid.v4(),
+        user: this.authService.generateDummyUser(),
+        description: 'This is a feed item content',
+        feed_item_images: this.generateDummyFeedImages(),
+        item_type: 'Job',
+        feed_item_files: [],
+        item: {
+          title: 'string',
+        },
+      };
+      feedItems.push(feedItem);
+    }
+    return feedItems;
+  }
+
+  generateDummyFeedImages() {
+    let shouldGenerate = faker.datatype.boolean();
+
+    if (!shouldGenerate) {
+      return [];
+    }
+
+    let feedImages: FeedItemImage[] = [];
+
+    let random = faker.datatype.number({ min: 1, max: 10 });
+
+    for (let i = 0; i < random; i++) {
+      feedImages.push({
+        id: uuid.v4(),
+        image: faker.image.url(),
+        feed_item_id: uuid.v4(),
+      });
+    }
+
+    return feedImages;
   }
   
   escapeRegExp(string: string): string {
