@@ -9,6 +9,7 @@ import { FeedImageComponent } from '../../components/shared/feed/feed-image/feed
 import { AuthComponent } from '../../components/shared/user/auth/auth/auth.component';
 import { RegisterComponent } from '../../components/shared/user/auth/register/register.component';
 import { LoginComponent } from '../../components/shared/user/auth/login/login.component';
+import { UserCardComponent } from '../../components/shared/user/cards/user-card/user-card.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     FeedImageComponent,
     RegisterComponent,
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    UserCardComponent
   ],
   imports: [
     FormsModule,
@@ -38,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     FeedImageComponent,
     RegisterComponent,
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    UserCardComponent
   ]
 })
 export class SharedModule { }
