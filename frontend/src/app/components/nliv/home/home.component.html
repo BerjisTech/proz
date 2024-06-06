@@ -1,8 +1,9 @@
 <div
-  class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white"
+  class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white gap-3"
 >
-  <div class="w-[300px] h-screen">
+  <div class="w-[300px] h-screen flex flex-col gap-3">
     <app-user-card></app-user-card>
+    <app-navigation [verticalNav]="true" [hasLogo]="false"></app-navigation>
   </div>
   <div
     class="flex-grow max-w-[700px] h-screen overflow-y-auto overflow-x-hidden border-x-1 border-solid border-[#2E6969]"

@@ -1,9 +1,24 @@
-<div *ngIf="showMain" [ngClass]="{'w-screen p-2 flex items-center  justify-center': true, 
-                 'bg-[#335E5B]': showMainBackground, 
-                 'bg-[#ffffff]': !showMainBackground}">
-    <a href="/"><img src="assets/images/logo.png" alt="logo" class="h-[30px] logo" /></a>
-    <div class="flex-grow"></div>
-    <div class="flex items-center  justify-center gap-2">
-        <app-nav-item *ngFor="let path of navItems" [path]="path"></app-nav-item>
-    </div>
+<div
+  *ngIf="showMain"
+  [ngClass]="{
+    'p-2 flex': true,
+    'bg-[#335E5B]': showMainBackground,
+    'bg-[#ffffff]': !showMainBackground,
+    'w-full flex-col items-start justify-start': verticalNav,
+    'w-screen flex-row items-center justify-center': !verticalNav
+  }"
+>
+  <a *ngIf="hasLogo" href="/"
+    ><img src="assets/images/logo.png" alt="logo" class="h-[30px] logo"
+  /></a>
+  <div class="flex-grow"></div>
+  <div
+    [ngClass]="{
+      'flex items-center justify-center gap-2': true,
+      'flex-col items-start justify-start': verticalNav,
+      'flex-row items-center justify-center': !verticalNav
+    }"
+  >
+    <app-nav-item *ngFor="let path of navItems" [path]="path"></app-nav-item>
+  </div>
 </div>

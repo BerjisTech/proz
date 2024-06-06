@@ -1,65 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwind.css';  
-  .vertical-lr {
-    writing-mode: vertical-lr;
+@import "tailwind.css";
+.vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+/* For Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+  width: 5px; /* Width of the vertical scrollbar */
+  height: 1px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #020617; /* Color of the scrollbar thumb */
+}
+
+* {
+  scrollbar-color: #020617 transparent; /* Thumb and track color */
+  scrollbar-width: thin; /* Width of the scrollbar */
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
+
+.sticky {
+  position: sticky !important;
+  top: 0 !important;
+  &.sticky--hide {
+    transform: translateY(-100%) !important;
   }
-  
-  .vertical-rl {
-    writing-mode: vertical-rl;
+  &.sticky--show {
+    transform: translateY(0) !important;
   }
-  
-  /* For Webkit browsers like Chrome, Safari */
-  ::-webkit-scrollbar {
-    width: 5px; /* Width of the vertical scrollbar */
-    height: 1px; /* Height of the horizontal scrollbar */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: transparent; /* Background color of the track */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #020617; /* Color of the scrollbar thumb */
-  }
-  
-  * {
-    scrollbar-color: #020617 transparent; /* Thumb and track color */
-    scrollbar-width: thin; /* Width of the scrollbar */
-    transition: all ease-in-out;
-    transition-duration: 500ms;
-  }
-  
-  .sticky {
-    position: sticky !important;
-    top: 0 !important;
-    &.sticky--hide {
-      transform: translateY(-100%) !important;
-    }
-    &.sticky--show {
-      transform: translateY(0) !important;
-    }
-  }
-  
-  :root {
-    --custom-vh: 100vh;
-    --custom-vw: 100vh;
-    --custom-px: 100px;
-  }
-  .custom-height {
-    height: calc(var(--custom-vh) - var(--custom-px));
-  }
-  .custom-width {
-    width: calc(var(--custom-vw) - var(--custom-px));
-  }
-  .no-select-color::selection {
-    background: transparent; /* or any other color you prefer */
-    color: inherit; /* or any other color you prefer */
-  }
-  
-  .text-outline {
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
-  
-  html, body { height: 100%; }
-  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+
+:root {
+  --custom-vh: 100vh;
+  --custom-vw: 100vh;
+  --custom-px: 100px;
+}
+.custom-height {
+  height: calc(var(--custom-vh) - var(--custom-px));
+}
+.custom-width {
+  width: calc(var(--custom-vw) - var(--custom-px));
+}
+.no-select-color::selection {
+  background: transparent; /* or any other color you prefer */
+  color: inherit; /* or any other color you prefer */
+}
+
+.text-outline {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Linear gradient background using 245252, 186362, 4D9D9D, with the bottom part being darkest and top part fades to whitish greenish using the color scheme
+.prozGradient {
+  background: linear-gradient(180deg, #4d9d9d 0%, #186362 50%, #245252 100%);
+}
+
+
+.text-primary{
+  color: #245252;
+}
+.bg-primary{
+  background-color: #245252;
+}

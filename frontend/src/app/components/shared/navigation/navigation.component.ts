@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { NavItem } from '../../../interfaces/navigation/nav-item';
 
 @Component({
@@ -10,6 +10,8 @@ export class NavigationComponent {
 
   @Input() showMain: boolean = true;
   @Input() showMainBackground: boolean = false;
+  @Input() verticalNav: boolean = false;
+  @Input() hasLogo: boolean = true;
 
   navItems: NavItem[] = [
     { url: '', displayName: 'Home', iconName: 'home', mode: 'home' },

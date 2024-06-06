@@ -1,20 +1,88 @@
-<div class="w-[300px] rounded-md flex flex-col items-center justify-center">
-  <div class="relative">
+<div
+  class="w-[300px] rounded-md shadow-md flex flex-col items-center justify-center mt-[20px]"
+>
+  <div
+    class="relative h-[300px] flex items-end justify-center prozGradient w-full rounded-t-md"
+  >
     <img
       src="assets/images/default-user.png"
-      class="w-[100px] h-[100px] rounded-full"
+      class="absolute bottom-[-20px] shadow-md w-[200px] h-[200px] rounded-full border-[5px] border-solid border-slate-50"
       alt="User Image"
     />
     <span
-      class="absolute material-symbols-outlined top-0 right-0 text-orange-500"
-      >star</span
+      class="text-white absolute material-symbols-outlined top-[5px] left-[5px]"
+      role="button"
+      >settings</span
     >
     <span
-      class="absolute w-[10px] h-[10px] bottom-[10px] right-[10px] bg-green-500 rounded-full"
-      ></span
+      class="text-white absolute material-symbols-outlined top-[5px] right-[5px]"
+      role="button"
+      >eye_tracking</span
     >
   </div>
-  <span class="space-x-4"></span>
-  <span>Full Names</span>
-  <span>Interpreter | Translator</span>
+  
+  <div
+    class="mt-[30px] px-[5px] flex flex-col items-center justify-center gap-5"
+    role="button"
+  >
+    <div class="grid grid-cols-4 w-full text-primary">
+      <div class="col-span-1 flex items-start justify-between flex-wrap">
+        <img
+          src="https://cfcdn.proz.com/file_resources/other/ea8a8111d06a5249e52316045c00f25d_CPN_logo.jpg"
+          class="w-[20px] h-[20px] rounded-full"
+        />
+        <img
+          src="https://go.proz.com/hubfs/secure-pro.png"
+          class="w-[20px] h-[20px] rounded-full"
+        />
+        <img
+          src="https://kudoway.com/wp-content/uploads/kudo-interpreter-badge-1-min.png"
+          class="w-[20px] h-[20px] rounded-full"
+        />
+        <img
+          src="https://sslcdn.proz.com/zf/images/blue_board/blue_board_logo.png"
+          class="w-[20px] h-[20px] rounded-full"
+        />
+      </div>
+      <div class="col-span-2 flex items-start justify-center">
+        <span class="text-lg font-bold">John Doe</span>
+      </div>
+      <div class="col-span-1 flex items-start justify-between flex-wrap">
+        <span class="material-symbols-outlined">chat</span>
+        <span class="material-symbols-outlined">mail</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-4 w-full gap-2">
+      <div class="col-span-1 flex items-center justify-center flex-wrap">
+        <span class="text-sm">Interpreter</span>
+      </div>
+      <div class="col-span-2 flex items-center justify-center">
+        <span
+          class="flex items-center w-full justify-center rounded-md px-3 text-lg text-white hover:text-[#245252] font-bold bg-primary hover:bg-white border-1 border-solid border-[#245252]"
+          role="button"
+          >HIRE</span
+        >
+      </div>
+      <div class="col-span-1 flex items-center justify-center flex-wrap">
+        <span class="text-sm">Agency</span>
+      </div>
+    </div>
+    <div
+      class="text-white bg-primary rounded-xl flex items-center justify-center w-full gap-2 p-2"
+    >
+      <span class="material-symbols-outlined col-span-1">schedule</span>
+      <span class="flex-grow">Availability not set</span>
+      <span>4.5</span>
+      <span class="material-symbols-outlined">star</span>
+    </div>
+    <div
+      class="text-primary flex items-end justify-center w-full gap-5"
+      role="button"
+    >
+      <span class="material-symbols-outlined">person_cancel</span>
+      <span class="h-[5px] rounded-md bg-primary flex-grow"></span>
+      <span class="material-symbols-outlined">person_add</span>
+    </div>
+    <span class="spacer"></span>
+  </div>
 </div>
