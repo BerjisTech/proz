@@ -8,6 +8,8 @@ export const routes: Routes = [
     // { path: 'suppliers', loadChildren: () => import('./modules/supplier/supplier.module').then(m => m.SupplierModule) },
     // { path: 'forums', loadChildren: () => import('./modules/forum/forum.module').then(m => m.ForumModule) },
     // { path: 'library', loadChildren: () => import('./modules/library/library.module').then(m => m.LibraryModule) },
+    { path: 'job', loadChildren: () => import('./modules/jobs/jobs.module').then(m => m.JobsModule) },
+    { path: 'jobs', loadChildren: () => import('./modules/jobs/jobs.module').then(m => m.JobsModule) },
     { path: '', loadChildren: () => import('./modules/nliv/nliv.module').then(m => m.NlivModule) },
     { path: '**', redirectTo: '404' }
 ];
